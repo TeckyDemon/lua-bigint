@@ -85,7 +85,7 @@ function BigInt.__mul(a,b)
 			product[#b-j]=product[#b-j]%10
 		end
 		for k=1,i do
-			table.insert(product,#product+1,0)
+			table.insert(product,0)
 		end
 		result=result+BigInt((carry>0 and carry or '')..table.concat(product))
 	end
@@ -105,9 +105,9 @@ function BigInt.__div(a,b)
 		dividend.digits[#dividend+1]=a.digits[#dividend+1]
 	end
 	local digit=#dividend
-	for i=1,#a-#b+1 do
-		local factor=b+b<dividend and 1 or 0
-		while BigInt(factor+1)*b<dividend do
+	for i=1,#a-digit+1 do
+		local factor=b+b<=dividend and 1 or 0
+		while BigInt(factor+1)*b<=dividend do
 			factor=factor+1
 		end
 		result[i]=factor
