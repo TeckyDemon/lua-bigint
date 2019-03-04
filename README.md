@@ -19,7 +19,10 @@ $ sudo apt install lua5.3 -y
 
 ### MacOS
 
-`$ brew install lua`
+```
+$ brew update && brew upgrade
+$ brew install lua
+```
 
 ## Installation
 
