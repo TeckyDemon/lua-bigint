@@ -106,12 +106,11 @@ function BigInt.__div(a,b)
 	end
 	local digit=#dividend
 	for i=1,#a-digit+1 do
-		local factor=b+b<=dividend and 1 or 0
-		while BigInt(factor+1)*b<=dividend do
-			factor=factor+1
+		result[i]=b+b<=dividend and 1 or 0
+		while BigInt(result[i]+1)*b<=dividend do
+			result[i]=result[i]+1
 		end
-		result[i]=factor
-		dividend=dividend-(b*BigInt(factor))
+		dividend=dividend-(b*BigInt(result[i]))
 		dividend.digits[#dividend+1]=a.digits[digit+i]
 	end
 	return BigInt(table.concat(result))
