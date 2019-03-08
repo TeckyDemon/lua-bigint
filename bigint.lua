@@ -8,6 +8,7 @@ setmetatable(BigInt,{
 })
 
 function BigInt.new(str)
+	if getmetatable(str)==BigInt then return str end
 	local self=setmetatable({},BigInt)
 	self.digits={}
 	for digit in tostring(str):gmatch'[0-9]' do
@@ -31,6 +32,7 @@ function BigInt:__unm()
 	return result
 end
 function BigInt.__add(a,b)
+	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)+BigInt(b) end
 	if a.signed and b.signed then
 		return -(-a+-b)
 	elseif a.signed or b.signed then
@@ -47,6 +49,7 @@ function BigInt.__add(a,b)
 	return BigInt((carry==1 and 1 or '')..table.concat(result))
 end
 function BigInt.__sub(a,b)
+	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)-BigInt(b) end
 	if a<b then
 		return -(b-a)
 	elseif a.signed and b.signed then
@@ -68,7 +71,8 @@ function BigInt.__sub(a,b)
 	return BigInt(table.concat(result))
 end
 function BigInt.__mul(a,b)
-	if a==BigInt(0) or b==BigInt(0) then
+	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)*BigInt(b) end
+	if a==0 or b==0 then
 		return BigInt(0)
 	elseif a.signed and b.signed then
 		return -a*-b
@@ -87,12 +91,13 @@ function BigInt.__mul(a,b)
 		for k=1,i do
 			table.insert(product,0)
 		end
-		result=result+BigInt((carry>0 and carry or '')..table.concat(product))
+		result=result+((carry>0 and carry or '')..table.concat(product))
 	end
 	return result
 end
 function BigInt.__div(a,b)
-	if a==BigInt(0) or b==BigInt(0) or a<b then
+	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)/BigInt(b) end
+	if a==0 or b==0 or a<b then
 		return BigInt(0)
 	elseif a.signed and b.signed then
 		return -a/-b
@@ -107,19 +112,20 @@ function BigInt.__div(a,b)
 	local digit=#dividend
 	for i=1,#a-digit+1 do
 		result[i]=b+b<=dividend and 1 or 0
-		while BigInt(result[i]+1)*b<=dividend do
+		while (result[i]+1)*b<=dividend do
 			result[i]=result[i]+1
 		end
-		dividend=dividend-(b*BigInt(result[i]))
+		dividend=dividend-(b*result[i])
 		dividend.digits[#dividend+1]=a.digits[digit+i]
 	end
 	return BigInt(table.concat(result))
 end
 function BigInt.__pow(a,b)
+	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)^BigInt(b) end
 	local result=BigInt(1)
-	while b~=BigInt(0) do
+	while b~=0 do
 		result=result*a
-		b=b-BigInt(1)
+		b=b-1
 	end
 	return result
 end
@@ -130,6 +136,7 @@ function BigInt.__eq(a,b)
 	return not (a>b or a<b)
 end
 function BigInt.__lt(a,b)
+	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)<BigInt(b) end
 	if a.signed and b.signed then
 		return -a>-b
 	elseif a.signed or b.signed then
