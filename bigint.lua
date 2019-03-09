@@ -59,7 +59,6 @@ function BigInt.__sub(a,b)
 	end
 	local result={}
 	local borrow=0
-	local max_digits=#a
 	for i=0,#a-1 do
 		result[#a-i]=(a.digits[#a-i] or 0)-(b.digits[#b-i] or 0)-borrow
 		borrow=(result[#a-i]<0 and 1 or 0)
