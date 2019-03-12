@@ -30,34 +30,36 @@ Clone this repository:
 
 `$ git clone "https://github.com/DeBos99/lua-bigint.git"`
 
+## Usage
+
 Move the file **bigint.lua** to your project directory and include it:
 
 `require 'bigint'`
 
-## Constructors
+### Constructors
 
 | Constructor                            | Description                                                         |
 | :---                                   | :---                                                                |
 | BigInt(number) <br> BigInt.new(number) | Translates decimal number representation of a BigInt into a BigInt. |
 | BigInt(string) <br> BigInt.new(string) | Translates decimal string representation of a BigInt into BigInt.   |
 
-## Methods
+### Methods
 
-| Method                                                       | Description                                                          |
-| :---                                                         | :---                                                                 |
-| BigInt.clone(a) <br> a:clone()                               | Returns the deep copy of a BigInt.                                   |
-| BigInt.\_\_tostring() <br> a:\_\_tostring() <br> tostring(a) | Returns the string representation of a BigInt.                       |
-| BigInt.\_\_len(a) <br> a:\_\_len() <br> #a                   | Returns the number of digits in a BigInt.                            |
-| BigInt.\_\_unm(a) <br> a:\_\_unm() <br> -a                   | Returns negated value of a BigInt.                                   |
-| BigInt.\_\_add(a, b) <br> a:\_\_add(b) <br> a + b            | Returns the sum of two BigInts.                                      |
-| BigInt.\_\_sub(a, b) <br> a:\_\_sub(b) <br> a - b            | Returns the difference of two BigInts.                               |
-| Bigint.\_\_mul(a, b) <br> a:\_\_mul(b) <br> a \* b           | Returns the product of two BigInts.                                  |
-| BigInt.\_\_div(a, b) <br> a:\_\_div(b) <br> a \/ b           | Returns the quotient of two BigInts.                                 |
-| BigInt.\_\_pow(a, b) <br> a:\_\_pow(b) <br> a ^ b            | Returns the BigInt to the power of the another BigInt.               |
-| BigInt.\_\_mod(a, b) <br> a:\_\_mod(b) <br> a % b            | Returns the remainder of a division of two BigInts.                  |
-| BigInt.\_\_eq(a, b) <br> a:\_\_eq(b) <br> a == b             | Returns **true** if two BigInts are equal.                           |
+| Method                                                       | Description                                                                |
+| :---                                                         | :---                                                                      |
+| BigInt.clone(a) <br> a:clone()                               | Returns the deep copy of a BigInt.                                        |
+| BigInt.\_\_tostring() <br> a:\_\_tostring() <br> tostring(a) | Returns the string representation of a BigInt.                            |
+| BigInt.\_\_len(a) <br> a:\_\_len() <br> #a                   | Returns the number of digits in a BigInt.                                  |
+| BigInt.\_\_unm(a) <br> a:\_\_unm() <br> -a                   | Returns negated value of a BigInt.                                        |
+| BigInt.\_\_add(a, b) <br> a:\_\_add(b) <br> a + b            | Returns the sum of two BigInts.                                            |
+| BigInt.\_\_sub(a, b) <br> a:\_\_sub(b) <br> a - b            | Returns the difference of two BigInts.                                    |
+| Bigint.\_\_mul(a, b) <br> a:\_\_mul(b) <br> a \* b           | Returns the product of two BigInts.                                        |
+| BigInt.\_\_div(a, b) <br> a:\_\_div(b) <br> a \/ b           | Returns the quotient of two BigInts.                                      |
+| BigInt.\_\_pow(a, b) <br> a:\_\_pow(b) <br> a ^ b            | Returns the BigInt to the power of the another BigInt.                    |
+| BigInt.\_\_mod(a, b) <br> a:\_\_mod(b) <br> a % b            | Returns the remainder of a division of two BigInts.                        |
+| BigInt.\_\_eq(a, b) <br> a:\_\_eq(b) <br> a == b             | Returns **true** if two BigInts are equal.                                |
 | BigInt.\_\_lt(a, b) <br> a:\_\_lt(b) <br> a < b              | Returns **true** if the first BigInt is less than the second BigInt. |
-| BigInt.\_\_abs(a) <br> a:abs()                               | Returns the absolute value of a BigInt.                              |
+| BigInt.\_\_abs(a) <br> a:abs()                               | Returns the absolute value of a BigInt.                                    |
 
 ## Authors
 
