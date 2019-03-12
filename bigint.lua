@@ -60,6 +60,7 @@ function BigInt.__sub(a,b)
 	local result={}
 	local borrow=0
 	for i=0,#a-1 do
+		print((a.digits[#a-i] or 0),(b.digits[#b-i] or 0),borrow,(a.digits[#a-i] or 0)-(b.digits[#b-i] or 0)-borrow)
 		result[#a-i]=(a.digits[#a-i] or 0)-(b.digits[#b-i] or 0)-borrow
 		borrow=(result[#a-i]<0 and 1 or 0)
 		result[#a-i]=(borrow==1 and result[#a-i]+10 or result[#a-i])
@@ -71,7 +72,7 @@ function BigInt.__sub(a,b)
 end
 function BigInt.__mul(a,b)
 	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)*BigInt(b) end
-	if a==0 or b==0 then
+	if a==BigInt(0) or b==BigInt(0) then
 		return BigInt(0)
 	elseif a.signed and b.signed then
 		return -a*-b
@@ -96,7 +97,7 @@ function BigInt.__mul(a,b)
 end
 function BigInt.__div(a,b)
 	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)/BigInt(b) end
-	if a==0 or b==0 or a<b then
+	if a==BigInt(0) or b==BigInt(0) or a<b then
 		return BigInt(0)
 	elseif a.signed and b.signed then
 		return -a/-b
