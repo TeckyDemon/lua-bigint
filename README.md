@@ -10,9 +10,18 @@ Install Lua: https://sourceforge.net/projects/luabinaries/files/5.3.5/Tools%20Ex
 
 ### Linux
 
+#### APT
+
 ```
 $ sudo apt update && sudo apt upgrade -y
 $ sudo apt install lua5.3 -y
+```
+
+#### Pacman
+
+```
+$ sudo pacman -Syu --noconfirm
+$ sudo pacman -S lua --noconfirm
 ```
 
 ### MacOS
