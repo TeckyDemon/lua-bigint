@@ -1,7 +1,5 @@
 # Lua-BigInt
 
-## Description
-
 **Lua-BigInt** is Big Interger library for Lua.
 
 ## Prerequisites
@@ -35,6 +33,8 @@ Clone this repository:
 Move the file **bigint.lua** to your project directory and include it:
 
 `require 'bigint'`
+
+## Documentation
 
 ### Constructors
 
