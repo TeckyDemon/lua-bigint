@@ -60,7 +60,6 @@ function BigInt.__sub(a,b)
 	local result={}
 	local borrow=0
 	for i=0,#a-1 do
-		print((a.digits[#a-i] or 0),(b.digits[#b-i] or 0),borrow,(a.digits[#a-i] or 0)-(b.digits[#b-i] or 0)-borrow)
 		result[#a-i]=(a.digits[#a-i] or 0)-(b.digits[#b-i] or 0)-borrow
 		borrow=(result[#a-i]<0 and 1 or 0)
 		result[#a-i]=(borrow==1 and result[#a-i]+10 or result[#a-i])
