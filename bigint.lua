@@ -122,7 +122,7 @@ end
 function BigInt.__pow(a,b)
 	if getmetatable(a)~=BigInt or getmetatable(b)~=BigInt then return BigInt(a)^BigInt(b) end
 	local result=BigInt(1)
-	while b~=0 do
+	while b~=BigInt(0) do
 		result=result*a
 		b=b-1
 	end
