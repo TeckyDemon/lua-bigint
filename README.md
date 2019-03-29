@@ -30,29 +30,29 @@ Install Lua: https://sourceforge.net/projects/luabinaries/files/5.3.5/Tools%20Ex
 #### APT
 
 ```
-$ sudo apt update && sudo apt upgrade -y
-$ sudo apt install lua5.3 -y
+sudo apt update && sudo apt upgrade -y
+sudo apt install lua5.3 -y
 ```
 
 #### Pacman
 
 ```
-$ sudo pacman -Syu --noconfirm
-$ sudo pacman -S lua --noconfirm
+sudo pacman -Syu --noconfirm
+sudo pacman -S lua --noconfirm
 ```
 
 ### MacOS
 
 ```
-$ brew update && brew upgrade
-$ brew install lua
+brew update && brew upgrade
+brew install lua
 ```
 
 ## Installation
 
 Clone this repository:
 
-`$ git clone "https://github.com/DeBos99/lua-bigint.git"`
+`git clone "https://github.com/DeBos99/lua-bigint.git"`
 
 ## Usage
 
