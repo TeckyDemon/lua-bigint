@@ -16,6 +16,7 @@
 - [Documentation](#documentation)
   - [Constructors](#constructors)
   - [Methods](#methods)
+- [TODO](#todo)
 - [Authors](#authors)
 - [License](#license)
 
@@ -86,6 +87,10 @@ Move the file **bigint.lua** to your project directory and include it:
 | BigInt.\_\_eq(a, b) <br> a:\_\_eq(b) <br> a == b             | Returns **true** if two BigInts are equal.                                |
 | BigInt.\_\_lt(a, b) <br> a:\_\_lt(b) <br> a < b              | Returns **true** if the first BigInt is less than the second BigInt. |
 | BigInt.\_\_abs(a) <br> a:abs()                               | Returns the absolute value of a BigInt.                                    |
+
+## TODO
+
+* Fix division bug
 
 ## Authors
 
