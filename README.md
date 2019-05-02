@@ -90,8 +90,6 @@ Move the file **bigint.lua** to your project directory and include it:
 
 ## TODO
 
-* Fix division bug
-
 ## Authors
 
 * **Michał Wróblewski** - Main Developer - [DeBos99](https://github.com/DeBos99)
