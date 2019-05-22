@@ -16,8 +16,8 @@
 - [Documentation](#documentation)
   - [Constructors](#constructors)
   - [Methods](#methods)
-- [TODO](#todo)
 - [Authors](#authors)
+- [Contact](#contact)
 - [License](#license)
 
 ## Prerequisites
@@ -88,11 +88,13 @@ Move the file **bigint.lua** to your project directory and include it:
 | BigInt.\_\_lt(a, b) <br> a:\_\_lt(b) <br> a < b              | Returns **true** if the first BigInt is less than the second BigInt. |
 | BigInt.\_\_abs(a) <br> a:abs()                               | Returns the absolute value of a BigInt.                                    |
 
-## TODO
-
 ## Authors
 
 * **Michał Wróblewski** - Main Developer - [DeBos99](https://github.com/DeBos99)
+
+## Contact
+
+Discord: DeBos#3292
 
 ## License
 
