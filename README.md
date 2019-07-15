@@ -24,13 +24,13 @@
 ## Content
 
 - [Content](#content)
-- [Prerequisites](#prerequisites)
-  - [Windows](#windows)
-  - [Linux](#linux)
-    - [APT](#apt)
-    - [Pacman](#pacman)
-  - [MacOS](#macos)
 - [Installation](#installation)
+  - [Windows](#windows)
+  - [Unix](#unix)
+    - [Debian/Ubuntu](#apt)
+    - [Arch Linux/Manjaro](#pacman)
+    - [CentOS](#yum)
+    - [MacOS](#homebrew)
 - [Usage](#usage)
 - [Documentation](#documentation)
   - [Constructors](#constructors)
@@ -39,73 +39,84 @@
 - [Contact](#contact)
 - [License](#license)
 
-## Prerequisites
+## Installation
 
 ### Windows
 
-Install Lua: https://sourceforge.net/projects/luabinaries/files/5.3.5/Tools%20Executables/lua-5.3.5_Win32_bin.zip/download
-
-### Linux
-
-#### APT
-
+* Install [Lua](https://sourceforge.net/projects/luabinaries/files/5.3.5/Tools%20Executables/lua-5.3.5_Win32_bin.zip/download).
+* Run following command in the command prompt:
 ```
-sudo apt update && sudo apt upgrade -y
-sudo apt install lua5.3 -y
+git clone "https://github.com/DeBos99/lua-bigint.git"
 ```
 
-#### Pacman
+### Unix
 
-```
-sudo pacman -Syu --noconfirm
-sudo pacman -S lua --noconfirm
-```
+#### <a name="APT">Debian/Ubuntu based
 
-### MacOS
-
+* Run following commands in the terminal:
 ```
-brew update && brew upgrade
-brew install lua
+sudo apt install git lua -y
+git clone "https://github.com/DeBos99/lua-bigint.git"
 ```
 
-## Installation
+#### <a name="Pacman">Arch Linux/Manjaro
 
-Clone this repository:
+* Run following commands in the terminal:
+```
+sudo pacman -S git lua --noconfirm
+git clone "https://github.com/DeBos99/lua-bigint.git"
+```
 
-`git clone "https://github.com/DeBos99/lua-bigint.git"`
+#### <a name="YUM">CentOS
+
+* Run following commands in the terminal:
+```
+sudo yum install git lua -y
+git clone "https://github.com/DeBos99/lua-bigint.git"
+```
+
+#### <a name="Homebrew">MacOS
+
+* Run following commands in the terminal:
+```
+brew install git lua
+git clone "https://github.com/DeBos99/lua-bigint.git"
+```
 
 ## Usage
 
-Move the file **bigint.lua** to your project directory and include it:
-
-`require 'bigint'`
+* Move the file [bigint.lua](bigint.lua) to your project directory.
+* Add following line at the top of your source file:
+```
+require 'bigint'
+```
 
 ## Documentation
 
 ### Constructors
 
 | Constructor                            | Description                                                         |
-| :---                                   | :---                                                                |
+| :------------------------------------- | :------------------------------------------------------------------ |
 | BigInt(number) <br> BigInt.new(number) | Translates decimal number representation of a BigInt into a BigInt. |
 | BigInt(string) <br> BigInt.new(string) | Translates decimal string representation of a BigInt into BigInt.   |
 
 ### Methods
 
-| Method                                                       | Description                                                                |
-| :---                                                         | :---                                                                      |
-| BigInt.clone(a) <br> a:clone()                               | Returns the deep copy of a BigInt.                                        |
-| BigInt.\_\_tostring() <br> a:\_\_tostring() <br> tostring(a) | Returns the string representation of a BigInt.                            |
-| BigInt.\_\_len(a) <br> a:\_\_len() <br> #a                   | Returns the number of digits in a BigInt.                                  |
-| BigInt.\_\_unm(a) <br> a:\_\_unm() <br> -a                   | Returns negated value of a BigInt.                                        |
-| BigInt.\_\_add(a, b) <br> a:\_\_add(b) <br> a + b            | Returns the sum of two BigInts.                                            |
-| BigInt.\_\_sub(a, b) <br> a:\_\_sub(b) <br> a - b            | Returns the difference of two BigInts.                                    |
-| Bigint.\_\_mul(a, b) <br> a:\_\_mul(b) <br> a \* b           | Returns the product of two BigInts.                                        |
-| BigInt.\_\_div(a, b) <br> a:\_\_div(b) <br> a \/ b           | Returns the quotient of two BigInts.                                      |
-| BigInt.\_\_pow(a, b) <br> a:\_\_pow(b) <br> a ^ b            | Returns the BigInt to the power of the another BigInt.                    |
-| BigInt.\_\_mod(a, b) <br> a:\_\_mod(b) <br> a % b            | Returns the remainder of a division of two BigInts.                        |
-| BigInt.\_\_eq(a, b) <br> a:\_\_eq(b) <br> a == b             | Returns **true** if two BigInts are equal.                                |
+| Method                                                       | Description                                                          |
+| :----------------------------------------------------------- | :------------------------------------------------------------------- |
+| BigInt.clone(a) <br> a:clone()                               | Returns the deep copy of a BigInt.                                   |
+| BigInt.\_\_tostring() <br> a:\_\_tostring() <br> tostring(a) | Returns the string representation of a BigInt.                       |
+| BigInt.\_\_len(a) <br> a:\_\_len() <br> #a                   | Returns the number of digits in a BigInt.                            |
+| BigInt.\_\_unm(a) <br> a:\_\_unm() <br> -a                   | Returns negated value of a BigInt.                                   |
+| BigInt.\_\_add(a, b) <br> a:\_\_add(b) <br> a + b            | Returns the sum of two BigInts.                                      |
+| BigInt.\_\_sub(a, b) <br> a:\_\_sub(b) <br> a - b            | Returns the difference of two BigInts.                               |
+| Bigint.\_\_mul(a, b) <br> a:\_\_mul(b) <br> a \* b           | Returns the product of two BigInts.                                  |
+| BigInt.\_\_div(a, b) <br> a:\_\_div(b) <br> a \/ b           | Returns the quotient of two BigInts.                                 |
+| BigInt.\_\_pow(a, b) <br> a:\_\_pow(b) <br> a ^ b            | Returns the BigInt to the power of the another BigInt.               |
+| BigInt.\_\_mod(a, b) <br> a:\_\_mod(b) <br> a % b            | Returns the remainder of a division of two BigInts.                  |
+| BigInt.\_\_eq(a, b) <br> a:\_\_eq(b) <br> a == b             | Returns **true** if two BigInts are equal.                           |
 | BigInt.\_\_lt(a, b) <br> a:\_\_lt(b) <br> a < b              | Returns **true** if the first BigInt is less than the second BigInt. |
-| BigInt.\_\_abs(a) <br> a:abs()                               | Returns the absolute value of a BigInt.                                    |
+| BigInt.\_\_abs(a) <br> a:abs()                               | Returns the absolute value of a BigInt.                              |
 
 ## Authors
 
